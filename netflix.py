@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import numpy as np
 
 
 
@@ -30,21 +29,21 @@ def filter_data_by_director(director):
 
 
 data_load_state = st.text('Loading cicle nyc data...')
-data = load_data(1000)
+data = load_data(500)
 data_load_state.text("Done! (using st.cache)")
 
-if st.sidebar.checkbox('Mostrar todos los filmes'):
-    st.subheader('Todos los filmes')
+if st.sidebar.checkbox('Mostrar todas las peliculas'):
+    st.subheader('Todos las peliculas')
     st.write(data)
 
 
-titulofilme = st.sidebar.text_input('Titulo del filme :')
-btnBuscar = st.sidebar.button('Buscar filmes')
+titulofilme = st.sidebar.text_input('Titulo de la pelicula :')
+btnBuscar = st.sidebar.button('Buscar peliculas')
 
 if (btnBuscar):
    data_filme = filter_data_by_filme(titulofilme.upper())
    count_row = data_filme.shape[0]  # Gives number of rows
-   st.write(f"Total filmes mostrados : {count_row}")
+   st.write(f"Total peliculas mostradas : {count_row}")
    st.write(data_filme)
 
 
@@ -55,6 +54,6 @@ btnFilterbyDirector = st.sidebar.button('Filtrar director ')
 if (btnFilterbyDirector):
    filterbydir = filter_data_by_director(selected_director)
    count_row = filterbydir.shape[0]  # Gives number of rows
-   st.write(f"Total filmes : {count_row}")
+   st.write(f"Total peliculas : {count_row}")
 
    st.dataframe(filterbydir)
