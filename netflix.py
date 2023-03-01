@@ -41,10 +41,10 @@ titulofilme = st.sidebar.text_input('Titulo de la pelicula :')
 btnBuscar = st.sidebar.button('Buscar peliculas')
 
 if (btnBuscar):
-   data_filme = filter_data_by_filme(titulofilme.upper())
-   count_row = data_filme.shape[0]  # Gives number of rows
-   st.write(f"Total peliculas mostradas : {count_row}")
-   st.write(data_filme)
+    data_filme = filter_data_by_filme(titulofilme.upper())
+    count_row = data_filme.shape[0]  # Gives number of rows
+    st.write(f"Total peliculas mostradas : {count_row}")
+    st.write(data_filme)
 
 
 
@@ -52,8 +52,8 @@ selected_director = st.sidebar.selectbox("Seleccionar Director", data['director'
 btnFilterbyDirector = st.sidebar.button('Filtrar director ')
 
 if (btnFilterbyDirector):
-   filterbydir = filter_data_by_director(selected_director)
-   count_row = filterbydir.shape[0]  # Gives number of rows
-   st.write(f"Total peliculas : {count_row}")
+    filterbydir = filter_data_by_director(selected_director)
+    count_row = filterbydir.shape[0]  # Gives number of rows
+    st.write(f"Total peliculas : {count_row}")
 
-   st.dataframe(filterbydir)
+    st.dataframe(filterbydir)
